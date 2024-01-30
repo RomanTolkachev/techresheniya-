@@ -33,7 +33,7 @@ export default {
                 '32px': ['32px', '41px'],
                 '12px': ['12px', '15px'],
                 'hero-main': ['clamp(5.625rem, 3.569rem + 10.965vw, 13.438rem)','clamp(6.875rem, 4.112rem + 14.737vw, 17.375rem)'],
-                'hero-legend': ['clamp(0.938rem, 0.592rem + 1.842vw, 2.25rem)', 'clamp(1.375rem, 0.98rem + 2.105vw, 2.875rem)']
+                'hero-legend': ['clamp(0.938rem, 0.592rem + 1.842vw, 2.25rem)', 'clamp(1.375rem, 0.98rem + 2.105vw, 2.875rem)'],
             },
             fontWeight: {
                 thin: '100',
@@ -53,6 +53,7 @@ export default {
                 'black': "#0D0D0D",
                 'gray-dark': "#656565",
                 'gray-light': "#ECECEC",
+                'gray-burger': "#b1b1b1",
                 'transp-button': "rgba(0, 0, 0, 0.10)",
             },
             boxShadow: {

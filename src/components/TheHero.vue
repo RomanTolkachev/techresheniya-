@@ -2,6 +2,9 @@
 
 import BGsrc from '@/assets/webp/background-imageWEBP.webp';
 import BGGragient from '@/assets/webp/josh-beech-tXJhAFVOHVk-unsplash.svg';
+import {ref} from "vue";
+
+const menu = ref(['Оборудование', 'Запасные части', 'О нас']);
 
 </script>
 
@@ -19,13 +22,28 @@ import BGGragient from '@/assets/webp/josh-beech-tXJhAFVOHVk-unsplash.svg';
         <img class="block" src="@/assets/svg/ЛОГО.svg" alt="logo">
       </a>
     </div>
-    <nav class="header__navbar self-start md:self-center">
+    <nav class="header__navbar self-start md:self-center hidden md:contents">
       <ul class="navbar flex flex-col gap-5 mt-[8px]">Наше производство
         <li class="navbar__product hidden hover:underline underline-offset-2"><a href="">Оборудование</a></li>
         <li class="navbar__tools hidden hover:underline underline-offset-2"><a href="">Запасне части</a></li>
       </ul>
     </nav>
-    <div class="header__about-us hover:underline underline-offset-2">о нас</div>
+    <div class="header__about-us hover:underline underline-offset-2 hidden md:contents">о нас</div>
+    <nav class="md:hidden absolute w-full top-0 left-0 text-20px bg-gray-burger">
+      <div class="header__logo p-[10px] border-solid border-b-[1px]">
+        <a class="block " href="#">
+          <img class="block " src="@/assets/svg/ЛОГО.svg" alt="logo">
+        </a>
+      </div>
+      <ul>
+        <li
+            v-for="item in menu"
+            class="p-[10px] border-solid border-b-[1px]"
+        >
+          <a href="">{{ item }}</a>
+        </li>
+      </ul>
+    </nav>
   </header>
   <div class="hero__main h-full -mt-[75px] pt-[75px] sm:w-[660px] container flex flex-col pb-[45px]">
     <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
