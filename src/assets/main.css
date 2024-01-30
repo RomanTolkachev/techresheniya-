@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "Onest", sans-serif;
+    src: url("@/assets/Onest-500-normal-cyrillic-ext.woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-grad {
+    @apply bg-gradient-to-r from-gradient-darker to-gradient-lighter
+}
+
+.button {
+    @apply h-[40px] w-[189px] font-regular rounded-[10px] text-base
+}
+
+._btn-orange {
+    @apply text-gray-light  bg-grad  shadow-orange-no-hover hover:shadow-orange-hover hover:border-gray-light hover:border-solid hover:border-[1px] transition-all
+}
+
+._btn-transparent {
+    @apply text-white bg-transp-button shadow-black-no-hover border-solid border-white border-[1px] backdrop-blur-sm hover:shadow-black-hover hover:border-[2px] transition-all
+}
+
+
+/*Кнопка с рамкой и градиентом*/
+
+.button-rim {
+    @apply rounded-[26px] bg-gradient-to-r from-gradient-darker to-gradient-lighter p-0.5 w-fit
+}
+
+.button-rim__bg {
+    @apply bg-gray-light w-fit h-full p-1 rounded-[24px]
+}
+
+.button-rim__text {
+    @apply text-transparent text-[32px] -mt-[1.5px] tracking-wide px-[33px] font-regular bg-clip-text bg-grad h-full
+}
+
+/*Кнопка оставить заявку для карточки*/
+
+.btn-order {
+    @apply w-full h-[62px] py-2.5 px-[30px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-base text-black font-regular
+}
