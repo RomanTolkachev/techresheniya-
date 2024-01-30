@@ -6,6 +6,9 @@ import {ref} from "vue";
 
 const menu = ref(['Оборудование', 'Запасные части', 'О нас']);
 
+
+const ifOpen = ref(true);
+
 </script>
 
 <template>
@@ -13,7 +16,7 @@ const menu = ref(['Оборудование', 'Запасные части', 'О
   <div class="bg-center bg-no-repeat w-full -mb-[100svh] h-svh md:h-[716px] md:-mb-[716px] relative -z-10 bg-cover"
        v-bind:style="{ backgroundImage: `url(${BGsrc})`}">
     <div class="bg-center bg-no-repeat w-full -mb-[100svh] h-svh md:h-[716px] md:-mb-[716px] relative -z-10 bg-cover opacity-60"
-         v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
+       v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
     </div>
   </div>
   <header class="hero__header header text-base flex justify-between items-center h-[75px] px-[15px] pt-10 md:pt-0 container text-white">
@@ -29,11 +32,31 @@ const menu = ref(['Оборудование', 'Запасные части', 'О
       </ul>
     </nav>
     <div class="header__about-us hover:underline underline-offset-2 hidden md:contents">о нас</div>
-    <nav class="md:hidden absolute w-full top-0 left-0 text-20px bg-gray-burger">
-      <div class="header__logo p-[10px] border-solid border-b-[1px]">
+    <div
+        class="w-[40px] absolute top-0 right-0 m-[15px]"
+        v-on:click="ifOpen = !ifOpen"
+    >
+      <img
+        src="/svg/burger.svg"
+        alt="burg">
+    </div>
+    <nav
+        class="md:hidden absolute w-full top-0 left-0 text-20px bg-gray-burger transition-all duration-300"
+        v-bind:class="[ifOpen ? 'left-0' : '-left-[100%]']"
+    >
+      <div class="header__logo p-[10px] border-solid border-b-[1px] flex justify-between relative">
         <a class="block " href="#">
           <img class="block " src="@/assets/svg/ЛОГО.svg" alt="logo">
         </a>
+        <div
+            id="escape"
+            class="w-[40px] absolute top-0 right-0 m-[15px]"
+            v-on:click="ifOpen = !ifOpen"
+        >
+          <img class="block"
+              src="/svg/cancel.svg"
+              alt="x">
+        </div>
       </div>
       <ul>
         <li
@@ -60,4 +83,7 @@ const menu = ref(['Оборудование', 'Запасные части', 'О
 
 <style scoped>
 
+.active {
+
+}
 </style>

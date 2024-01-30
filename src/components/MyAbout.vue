@@ -18,7 +18,7 @@ import ProdCard from './ProdCard.vue'
         </div>
       </div>
       <div class="flex flex-col lg:flex-row mt-16 justify-center gap-[20px]">
-        <article class=" w-auto px-[100px] py-[60px] text-20px font-regular rounded-[20px] bg-white">
+        <article class=" w-auto p-[16px] md:px-[100px] md:py-[60px] text-20px font-regular rounded-[20px] bg-white">
           <div>
             <p>«Техрешение+» возникло вследствие ликвидации одного из старейших отечественных предприятий
               машиностроения, являвшегося единственным производителем санитарного оборудования ГА (генератора аэрозольного),

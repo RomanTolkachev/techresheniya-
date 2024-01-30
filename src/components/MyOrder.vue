@@ -5,7 +5,7 @@
 
 <template>
   <section class="bg-grad py-[86px]">
-    <div class="bg-white flex flex-col md:flex-row container rounded-[20px] py-[75px] px-[105px] justify-between gap-[124px]">
+    <div class="bg-white flex flex-col md:flex-row container rounded-[20px] p-[16px] md:py-[75px] md:px-[105px] justify-between gap-[124px]">
       <div>
         <h3 class="text-32px font-regular mb-10">
           Есть вопросы или хотите <br> оставить заявку?
