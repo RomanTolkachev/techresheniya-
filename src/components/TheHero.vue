@@ -7,7 +7,7 @@ import {ref} from "vue";
 const menu = ref(['Оборудование', 'Запасные части', 'О нас']);
 
 
-const ifOpen = ref(true);
+const ifOpen = ref(false);
 
 </script>
 
@@ -42,7 +42,7 @@ const ifOpen = ref(true);
     </div>
     <nav
         class="md:hidden absolute w-full top-0 left-0 text-20px bg-gray-burger transition-all duration-300"
-        v-bind:class="[ifOpen ? 'left-0' : '-left-[100%]']"
+        v-bind:class="[ifOpen ? 'left-0' : 'left-[-100%]']"
     >
       <div class="header__logo p-[10px] border-solid border-b-[1px] flex justify-between relative">
         <a class="block " href="#">
@@ -83,7 +83,4 @@ const ifOpen = ref(true);
 
 <style scoped>
 
-.active {
-
-}
 </style>
