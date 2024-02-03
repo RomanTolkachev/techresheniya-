@@ -33,9 +33,8 @@ const ifOpen = ref(false);
     </nav>
     <div class="header__about-us hover:underline underline-offset-2 hidden md:contents">о нас</div>
     <div
-        class="w-[40px] absolute top-0 right-0 m-[15px]"
-        v-on:click="ifOpen = !ifOpen"
-    >
+        class="w-[40px] absolute top-0 right-0 m-[15px] md:hidden"
+        v-on:click="ifOpen = !ifOpen">
       <img
         src="/svg/burger.svg"
         alt="burg">
@@ -49,7 +48,6 @@ const ifOpen = ref(false);
           <img class="block " src="@/assets/svg/ЛОГО.svg" alt="logo">
         </a>
         <div
-            id="escape"
             class="w-[40px] absolute top-0 right-0 m-[15px]"
             v-on:click="ifOpen = !ifOpen"
         >
