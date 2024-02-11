@@ -16,7 +16,7 @@ import ItemCard from "@/components/ItemCard.vue";
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px] container w-fit mt-16">
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[20px] container w-fit mt-16">
       <item-card
           v-for="item in items"
           v-bind:details="item"

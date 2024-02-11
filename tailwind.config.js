@@ -34,6 +34,10 @@ export default {
                 '12px': ['12px', '15px'],
                 'hero-main': ['clamp(5.625rem, 3.569rem + 10.965vw, 13.438rem)','clamp(6.875rem, 4.112rem + 14.737vw, 17.375rem)'],
                 'hero-legend': ['clamp(0.938rem, 0.592rem + 1.842vw, 2.25rem)', 'clamp(1.375rem, 0.98rem + 2.105vw, 2.875rem)'],
+                'itemCard-header': ['clamp(0.938rem, 0.775rem + 0.742vw, 1.25rem)', 'clamp(1.188rem, 0.96rem + 1.039vw, 1.625rem)'],
+                'itemCard-order': ['clamp(0.688rem, 0.558rem + 0.593vw, 0.938rem)', 'clamp(0.813rem, 0.65rem + 0.742vw, 1.125rem)'],
+                'order-header': ['clamp(1.25rem, 0.861rem + 1.78vw, 2rem)', 'clamp(1.625rem, 1.138rem + 2.226vw, 2.563rem)'],
+                '15-20': ['clamp(0.938rem, 0.775rem + 0.742vw, 1.25rem)', 'clamp(1.188rem, 0.96rem + 1.039vw, 1.625rem)'],
             },
             fontWeight: {
                 thin: '100',
@@ -67,6 +71,12 @@ export default {
             },
             padding: {
                 'legend': 'clamp(0.938rem, 0.576rem + 1.93vw, 2.313rem)'
+            },
+            width: {
+                'ItemCard': 'clamp(9.875rem, 5.364rem + 20.623vw, 18.563rem)',
+            },
+            height: {
+                'itemCard-order': 'clamp(3.125rem, 2.736rem + 1.78vw, 3.875rem)',
             }
         }
     },

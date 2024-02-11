@@ -37,9 +37,3 @@
 .button-rim__text {
     @apply text-transparent text-[32px] -mt-[1.5px] tracking-wide px-[33px] font-regular bg-clip-text bg-grad h-full
 }
-
-/*Кнопка оставить заявку для карточки*/
-
-.btn-order {
-    @apply w-full h-[62px] py-2.5 px-[30px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-base text-black font-regular
-}

@@ -8,13 +8,13 @@ const ifOpen = ref(false);
 </script>
 
 <template>
-  <header>
-    <div>
-      <a class="block p-[15px]" href="#">
+  <header class="py-[15px] px-[20px]">
+    <div class="flex justify-between">
+      <a class="block" href="#">
         <img class="block" src="@/assets/svg/ЛОГО.svg" alt="logo">
       </a>
       <div
-          class="w-[40px] absolute top-0 right-0 m-[15px] md:hidden"
+          class="w-[40px]"
           v-on:click="ifOpen = !ifOpen">
         <img
             src="/svg/burger.svg"
