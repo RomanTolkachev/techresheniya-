@@ -4,10 +4,13 @@ import BGsrc from '@/assets/webp/background-imageWEBP.webp';
 import BGGragient from '@/assets/webp/josh-beech-tXJhAFVOHVk-unsplash.svg';
 import {computed, onMounted, ref, watch, watchEffect} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
-import HeaderMobile from "@/components/header/HaderMobile.vue"
+import HeaderMobile from "@/components/header/HeaderMobile.vue"
 
 const currentWidth = ref(window.innerWidth)
 const ifMobileScreen = ref(currentWidth.value < 767);
+
+
+// resize params
 
 window.addEventListener('resize', () => currentWidth.value = window.innerWidth)
 
@@ -15,6 +18,20 @@ watch(() => currentWidth.value < 767, () => {
   ifMobileScreen.value = currentWidth.value < 767;
   console.log(ifMobileScreen.value);
 });
+
+// scroll params
+
+const scroll = ref(window.scrollY);
+
+const ifScrolled = ref(false);
+
+window.addEventListener('scroll',() =>  scroll.value = window.scrollY)
+
+watch(() => scroll.value, () => {
+  scroll.value > 100 ? ifScrolled.value = true : ifScrolled.value = false;
+  console.log(scroll.value);
+  console.log(ifScrolled.value);
+})
 
 </script>
 
@@ -26,9 +43,16 @@ watch(() => currentWidth.value < 767, () => {
        v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
     </div>
   </div>
-  <HeaderWide class="hidden md:block transition-all"></HeaderWide>
-  <HeaderMobile class="md:hidden transition-all"></HeaderMobile>
-  <div class="hero__main h-full -mt-[75px] pt-[75px] sm:w-[660px] container flex flex-col pb-[45px]">
+  <HeaderWide
+      class="hidden md:block"
+      v-bind:ifScrolled="ifScrolled"
+  >
+  </HeaderWide>
+  <HeaderMobile
+      class="md:hidden"
+      v-bind:ifScrolled="ifScrolled"
+  ></HeaderMobile>
+  <div class="hero__main h-full -mt-[65px] pt-[65px] sm:w-[660px] container flex flex-col pb-[45px]">
     <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
     <p class="text-white text-hero-legend -mt-[25px] pt-legend text-center tracking-[.85px]">ПРОИЗВОДИМ ОБОРУДОВАНИЕ</p>
     <p class="text-white text-hero-legend text-center tracking-[.81px]">СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ</p>
