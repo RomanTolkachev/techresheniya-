@@ -1,4 +1,5 @@
 <script setup>
+import eventBus from "@/eventBus.js";
 
 const props = defineProps({
   menu: {
@@ -24,8 +25,9 @@ const props = defineProps({
           <ul class="flex text-center w-fit gap-5">
             <li
                 v-for="item in props.menu"
+                v-on:click="eventBus.$emit('scrollTo', item.scrollId)"
                 class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] text-center transition-all">
-              <a href="#">{{ item.name }}</a>
+                {{ item.name }} {{ item.scrollId }}
             </li>
           </ul>
         </nav>
