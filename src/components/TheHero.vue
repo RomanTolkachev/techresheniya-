@@ -36,19 +36,12 @@ defineExpose({
       <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"
            v-bind:style="{ backgroundImage: `url(${BGsrc})`}">
         <div
-            class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover opacity-60"
+            class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] bg-cover opacity-60"
             v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
         </div>
       </div>
-      <HeaderWide
-          class="hidden md:block"
-          v-bind:menu="menu"
-      >
-      </HeaderWide>
-      <HeaderMobile
-          class="md:hidden"
-          v-bind:menu="menu"
-      ></HeaderMobile>
+      <HeaderWide class="hidden md:block" v-bind:menu="menu"></HeaderWide>
+      <HeaderMobile class="md:hidden" v-bind:menu="menu"></HeaderMobile>
       <div class="h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
         <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
         <p class="text-white text-hero-legend -mt-[25px] pt-legend text-center tracking-[.85px]">ПРОИЗВОДИМ

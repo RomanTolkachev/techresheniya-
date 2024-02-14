@@ -10,19 +10,14 @@ const props = defineProps({
 </script>
 
 <template>
-  <div
-      class="z-[100] fixed top-0 bg-white w-full"
-  >
+  <div class="fixed z-[5] top-0 bg-white w-full">
     <header class="flex text-base justify-between items-center h-[65px] px-[15px] text-black shadow-lg">
         <div
             class="header__logo"
-            v-on:click="eventBus.emit('scrollTo', 'hero')"
-        >
+            v-on:click="eventBus.emit('scrollTo', 'hero')">
             <img class="block transition-all hover:scale-[1.05]" src="@/assets/svg/ЛОГО.svg" alt="logo">
         </div>
-        <nav
-            class=""
-        >
+        <nav>
           <ul class="flex text-center w-fit gap-5">
             <li
                 v-for="item in props.menu"
