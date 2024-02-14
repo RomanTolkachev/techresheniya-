@@ -1,6 +1,7 @@
-import { createApp } from 'vue';
 
-const eventBus = createApp({});
+import mitt from 'mitt'
+
+const eventBus = mitt();
 
 export default eventBus;
 

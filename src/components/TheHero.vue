@@ -13,24 +13,24 @@ const menu = ref([
   },
   {
     name: "Запасные части",
-    scrollId: "items",
+    scrollId: "itemsRef",
   },
   {
     name: "О нас",
-    scrollId: "about",
+    scrollId: "aboutRef",
   },
 ])
 
-const hero = ref(null);
+const heroRef = ref(null);
 
 defineExpose({
-  hero
+  heroRef
 })
 
 </script>
 
 <template>
-  <div ref="hero">
+  <div ref="heroRef">
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
       <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"

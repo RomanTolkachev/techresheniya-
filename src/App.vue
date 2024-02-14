@@ -11,7 +11,7 @@ import {onMounted, ref} from "vue";
 import eventBus from "@/eventBus.js";
 
 const hero = ref(null);
-const product = ref(null);
+const productRef = ref(null);
 const items = ref(null);
 const about = ref(null);
 
@@ -20,17 +20,14 @@ const views = ref({});
 onMounted(() => {
   views.value = {
     hero: hero.value.heroRef,
-    product: product.value.productRef,
-    items: items.value.itemsRef,
-    about: about.value.aboutRef,
+    product: productRef.value.productRef,
+    itemsRef: items.value.itemsRef,
+    aboutRef: about.value.aboutRef,
   }
 })
 
-console.log(eventBus)
-
-eventBus.$on('scrollTo', (data) => {
-  console.log(data)
-  scrollTo()
+eventBus.on('scrollTo', (data) => {
+  scrollTo(data)
 })
 
 const scrollTo = (to) => {
@@ -41,7 +38,7 @@ const scrollTo = (to) => {
 
 <template>
   <MyHero ref="hero" v-on:scrollTo="scrollTo"></MyHero>
-  <MyProd ref="product"></MyProd>
+  <MyProd ref="productRef"></MyProd>
   <MyItems ref="items"></MyItems>
   <MyAbout ref="about"></MyAbout>
   <my-order></my-order>

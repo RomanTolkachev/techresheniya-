@@ -1,12 +1,17 @@
 <script setup>
 
-import {product} from '@/assets/products/spare_parts.js'
-import ProdCard from './ProdCard.vue'
+import {ref} from "vue";
+
+const aboutRef = ref(null);
+
+defineExpose({
+  aboutRef
+})
 
 </script>
 
 <template>
-  <section class="bg-gray-light py-[100px]">
+  <section ref="aboutRef" class="bg-gray-light py-[100px]">
     <div class="container">
       <div class="mx-auto w-fit ">
         <div class="button-rim">
