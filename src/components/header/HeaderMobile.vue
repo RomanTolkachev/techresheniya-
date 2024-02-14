@@ -2,39 +2,16 @@
 
 import {ref, watch} from "vue";
 
-const props = defineProps({
-  ifScrolled: {
-    type: Boolean,
-  }
-})
-
-const ifOpen = ref(false);
-
-const opacityValue = ref(1);
-
-watch(() => props.ifScrolled, () => {
-  props.ifScrolled === false ? opacityValue.value = 1 : opacityValue.value = 0;
-  if (props.ifScrolled) {
-    const timerId = setInterval(() => opacityValue.value += 0.05, 35);
-    watch(() => opacityValue.value, () => {
-      if (opacityValue.value >= Number(1)) {
-        clearInterval(timerId)
-      }
-    })
-  }
-})
+const ifOpen = ref(false)
 
 </script>
 
 <template>
   <div
-      v-bind:style="{opacity: opacityValue}"
       class="z-[100]"
-      v-bind:class="{'fixed': props.ifScrolled, 'w-full': props.ifScrolled,}"
   >
     <header
         class="px-[20px] h-[65px]"
-        v-bind:class="{'bg-gradient-to-b from-gray-light/95 to-gray-dark/95 backdrop-blur-sm h-[65px]': props.ifScrolled}"
     >
       <div class="flex justify-between items-center h-full">
         <a class="block" href="#">

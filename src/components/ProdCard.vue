@@ -17,7 +17,7 @@
             class="rounded-[10px] aspect-[1.35] object-cover"
         >
       </div>
-      <button class="btn-order mt-auto">
+      <button class="w-full h-itemCard-order py-2.5 px-[15px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-itemCard-order text-black font-regular mt-auto">
         ОСТАВИТЬ ЗАЯВКУ
       </button>
     </div>
@@ -27,7 +27,7 @@
       <h4 class="description__adv text-black text-20px font-regular mt-auto mb-[5px]">Преимущества</h4>
       <ul class="text-black text-14px font-medium list-disc pl-[20px]">
         <li
-        v-for="item in details.advantages">{{ item }}}
+        v-for="item in details.advantages">{{ item }}
         </li>
       </ul>
     </div>
