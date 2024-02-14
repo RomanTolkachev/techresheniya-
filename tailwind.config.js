@@ -32,7 +32,7 @@ export default {
                 '20px': ['20px', '26px'],
                 '32px': ['32px', '41px'],
                 '12px': ['12px', '15px'],
-                'hero-main': ['clamp(5.625rem, 3.569rem + 10.965vw, 13.438rem)','clamp(6.875rem, 4.112rem + 14.737vw, 17.375rem)'],
+                'hero-main': ['clamp(6.25rem, 3.004rem + 14.837vw, 12.5rem)','clamp(8.875rem, 5.11rem + 17.211vw, 16.125rem)'],
                 'hero-legend': ['clamp(0.938rem, 0.592rem + 1.842vw, 2.25rem)', 'clamp(1.375rem, 0.98rem + 2.105vw, 2.875rem)'],
                 'itemCard-header': ['clamp(0.938rem, 0.775rem + 0.742vw, 1.25rem)', 'clamp(1.188rem, 0.96rem + 1.039vw, 1.625rem)'],
                 'itemCard-order': ['clamp(0.688rem, 0.558rem + 0.593vw, 0.938rem)', 'clamp(0.813rem, 0.65rem + 0.742vw, 1.125rem)'],

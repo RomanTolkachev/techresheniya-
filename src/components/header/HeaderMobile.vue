@@ -2,16 +2,22 @@
 
 import {ref, watch} from "vue";
 
+const props = defineProps({
+  menu: {
+    required: true,
+  }
+})
+
 const ifOpen = ref(false)
 
 </script>
 
 <template>
   <div
-      class="z-[100]"
+      class="z-[100] fixed top-0 bg-white w-full"
   >
     <header
-        class="px-[20px] h-[65px]"
+        class="px-[20px] h-[65px] shadow-lg"
     >
       <div class="flex justify-between items-center h-full">
         <a class="block" href="#">
