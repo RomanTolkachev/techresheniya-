@@ -27,35 +27,29 @@ const ifOpen = ref(false)
             class="w-[40px]"
             v-on:click="ifOpen = !ifOpen">
           <img
+              v-if="!ifOpen"
               src="/svg/burger.svg"
               alt="burg">
+
+          <img
+              v-if="ifOpen"
+              src="/svg/cancel.svg"
+              alt="burg">
+
         </div>
       </div>
       <nav
-          class="absolute w-full top-0 left-0 text-20px bg-gray-burger transition-all duration-300"
-          v-bind:class="[ifOpen ? 'left-0' : 'left-[-100%]']"
+          class="absolute w-2/5 top-[65px] right-0 text-20px h-svh bg-white transition-all duration-500"
+          v-bind:class="[ifOpen ? 'right-0' : 'right-[-100%]']"
       >
-        <div class="header__logo p-[10px] border-solid border-b-[1px] flex justify-between relative">
-          <a class="block " href="#">
-            <img class="block " src="@/assets/svg/ЛОГО.svg" alt="logo">
-          </a>
-          <div
-              class="w-[40px] absolute top-0 right-0 m-[15px]"
-              v-on:click="ifOpen = !ifOpen"
-          >
-            <img class="block"
-                 src="/svg/cancel.svg"
-                 alt="x">
-          </div>
-        </div>
-<!--        <ul>-->
-<!--          <li-->
-<!--              v-for="item in menu"-->
-<!--              class="p-[10px] border-solid border-b-[1px]"-->
-<!--          >-->
-<!--            <a href="">{{ item }}</a>-->
-<!--          </li>-->
-<!--        </ul>-->
+        <ul>
+          <li class="p-[10px] border-solid border-y-[1px]"> Главная </li>
+          <li
+              v-for="item in menu"
+              class="p-[10px] border-solid border-b-[1px]"
+          > {{ item.name }}
+          </li>
+        </ul>
       </nav>
     </header>
   </div>

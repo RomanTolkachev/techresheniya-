@@ -28,7 +28,7 @@ const props = defineProps({
                 v-for="item in props.menu"
                 v-on:click="eventBus.emit('scrollTo', item.scrollId)"
                 class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] text-center transition-all">
-                {{ item.name }} {{ item.scrollId }}
+                {{ item.name }}
             </li>
           </ul>
         </nav>
