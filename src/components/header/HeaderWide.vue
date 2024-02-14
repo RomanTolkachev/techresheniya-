@@ -19,7 +19,7 @@ const props = defineProps({
           </a>
         </div>
         <nav
-            class="-ml-[60px]"
+            class=""
         >
           <ul class="flex text-center w-fit gap-5">
             <li

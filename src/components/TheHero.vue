@@ -69,7 +69,7 @@ const menu = ref([
         class="md:hidden"
         v-bind:menu="menu"
     ></HeaderMobile>
-    <div class="hero__main h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
+    <div class="h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
       <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
       <p class="text-white text-hero-legend -mt-[25px] pt-legend text-center tracking-[.85px]">ПРОИЗВОДИМ
         ОБОРУДОВАНИЕ</p>
