@@ -35,7 +35,7 @@ const props = defineProps({
 
       </header>
     </div>
-    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] translate-x-[100%] duration-300 md:hidden" v-bind:class="{'translate-x-[0%]': isOpen}">
+    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2]  duration-300 md:hidden" v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
       <ul>
         <li v-on:click="eventBus.emit('scrollTo', 'hero')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
         <li class="p-[10px] border-solid border-b-[1px] active:bg-white active:text-gray-dark"
@@ -49,9 +49,9 @@ const props = defineProps({
       <span :class="{'translate-x-[-90px]': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[14px]"></span>
     </button>
   </div>
-
 </template>
 
 <style scoped>
 
 </style>
+
