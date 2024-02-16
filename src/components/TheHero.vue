@@ -27,13 +27,13 @@ defineExpose({
   heroRef
 })
 
-const headerWide = ref(null);
+const isOpen = ref(false);
 
 </script>
 
 <template>
   <div ref="heroRef">
-    <div class="overlay w-full h-full fixed bg-black opacity-60 translate-x-[100%] duration-500" v-bind:class="{'translate-x-[0%]': true}"></div>
+    <div class="overlay w-full h-full fixed bg-black opacity-60 translate-x-[100%] duration-500" v-bind:class="{'translate-x-[0]': isOpen}"></div>
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
       <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"
@@ -43,7 +43,7 @@ const headerWide = ref(null);
             v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
         </div>
       </div>
-      <HeaderWide ref="headerWide" class="md:block transition-all" v-bind:menu="menu"></HeaderWide>
+      <HeaderWide v-model:isOpen="isOpen" class="md:block transition-all" v-bind:menu="menu"></HeaderWide>
 <!--      <HeaderMobile class="md:hidden" v-bind:menu="menu"></HeaderMobile>-->
       <div class="h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
         <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
