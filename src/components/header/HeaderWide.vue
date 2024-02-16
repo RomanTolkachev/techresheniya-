@@ -13,6 +13,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <div>
     <div class="fixed z-[2] top-0 bg-white w-full">
       <header class="flex text-base justify-between items-center h-[65px] px-[15px] text-black shadow-lg">
         <div
@@ -47,6 +48,8 @@ const props = defineProps({
       <span :class="{'-rotate-45': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
       <span :class="{'translate-x-[-90px]': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[14px]"></span>
     </button>
+  </div>
+
 </template>
 
 <style scoped>
