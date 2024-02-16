@@ -34,7 +34,7 @@ const props = defineProps({
 
       </header>
     </div>
-    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] translate-x-[100%] duration-300 md:hidden" v-bind:class="{'translate-x-[0]': isOpen}">
+    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] translate-x-[100%] duration-300 md:hidden" v-bind:class="{'translate-x-[0%]': isOpen}">
       <ul>
         <li v-on:click="eventBus.emit('scrollTo', 'hero')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
         <li class="p-[10px] border-solid border-b-[1px] active:bg-white active:text-gray-dark"
