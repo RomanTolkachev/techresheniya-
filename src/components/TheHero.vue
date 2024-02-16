@@ -33,7 +33,7 @@ const isOpen = ref(false);
 
 <template>
   <div ref="heroRef">
-    <div class="overlay w-full h-full fixed bg-black opacity-60 translate-x-[100%] duration-500" v-bind:class="{'translate-x-[0]': isOpen}"></div>
+    <div class="overlay w-full h-full fixed bg-black opacity-60 translate-x-[100%]" v-bind:class="{'translate-x-[0]': isOpen}"></div>
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
       <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"
@@ -54,7 +54,7 @@ const isOpen = ref(false);
           <button class="md:h-[40px] w-full h-[60px] md:w-[189px] font-regular rounded-[10px] text-base _btn-orange">
             ОСТАВИТЬ ЗАЯВКУ
           </button>
-          <button class="md:h-[40px] w-full h-[60px] md:w-[189px] font-regular rounded-[10px] z-[-1] text-base _btn-transparent">
+          <button v-bind:class="{'z-[-1]': isOpen}" class="md:h-[40px] w-full h-[60px] md:w-[189px] font-regular rounded-[10px] text-base _btn-transparent">
             УЗНАТЬ БОЛЬШЕ
           </button>
         </div>
