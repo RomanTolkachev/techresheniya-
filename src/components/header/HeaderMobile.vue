@@ -13,9 +13,9 @@ const ifOpen = ref(false)
 </script>
 
 <template>
-  <div class="fixed z-10 top-0 bg-white w-full">
+  <div class="fixed z-20 top-0 bg-white w-full">
     <header class="px-[20px] h-[65px] shadow-lg">
-      <div class="flex justify-between items-center h-full z-20">
+      <div id="top-header" class="header flex justify-between items-center h-full relative z-20">
         <a class="block" href="#">
           <img class="block" src="@/assets/svg/ЛОГО.svg" alt="logo">
         </a>
@@ -26,7 +26,7 @@ const ifOpen = ref(false)
           <img v-if="ifOpen" src="/svg/cancel.svg" alt="burg">
         </div>
       </div>
-      <nav class="absolute w-2/5 top-[55px] text-20px h-svh bg-white transition-all duration-500 shadow-[-200px_-7px_80px_200px_rgba(0,0,0,0.44)]"
+      <nav id="side-menu" class="navigation w-2/5 absolute z-10 top-[55px] text-20px h-svh bg-white transition-all duration-500 shadow-[-200px_-7px_80px_200px_rgba(0,0,0,0.44)]"
           v-bind:class="[ifOpen ? 'right-0' : 'right-[-200%]']">
         <ul>
           <li class="p-[10px] border-solid border-y-[1px]"> Главная </li>
