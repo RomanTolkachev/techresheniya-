@@ -1,12 +1,11 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export const store = defineStore('mobileIsOpen', () => {
+  const ifOpen = ref(false);
+  function toggle() {
+    ifOpen.value = !ifOpen.value
   }
 
-  return { count, doubleCount, increment }
+  return { store, ifOpen, toggle }
 })

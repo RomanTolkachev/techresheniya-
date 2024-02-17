@@ -1,14 +1,27 @@
 <script setup>
 import eventBus from "@/eventBus.js";
+import {ref} from "vue";
 
 const props = defineProps({
-  menu: {
-    required: true,
-  },
   isOpen: {
     required: true,
   }
 });
+
+const menu = ref([
+  {
+    name: "Оборудование",
+    scrollId: "product",
+  },
+  {
+    name: "Запасные части",
+    scrollId: "itemsRef",
+  },
+  {
+    name: "О нас",
+    scrollId: "aboutRef",
+  },
+])
 
 </script>
 
@@ -23,9 +36,9 @@ const props = defineProps({
         </div>
 
         <nav>
-          <ul class="hidden md:flex text-center w-fit gap-5">
+          <ul class="hidden md:flex text-center w-fit gap-5 select-none">
             <li
-                v-for="item in props.menu"
+                v-for="item in menu"
                 v-on:click="eventBus.emit('scrollTo', item.scrollId)"
                 class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] text-center transition-all">
               {{ item.name }}
@@ -35,11 +48,11 @@ const props = defineProps({
 
       </header>
     </div>
-    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2]  duration-300 md:hidden" v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
+    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
       <ul>
         <li v-on:click="eventBus.emit('scrollTo', 'hero')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
         <li class="p-[10px] border-solid border-b-[1px] active:bg-white active:text-gray-dark"
-            v-for="item in props.menu" v-on:click="eventBus.emit('scrollTo', item.scrollId)">{{ item.name }}</li>
+            v-for="item in menu" v-on:click="eventBus.emit('scrollTo', item.scrollId)">{{ item.name }}</li>
       </ul>
     </nav>
     <button v-on:click="$emit('update:isOpen', !isOpen)" class="overflow-hidden h-[65px] md:hidden fixed top-0 right-0 z-[3] p-[15px] w-[65px] text-center">
