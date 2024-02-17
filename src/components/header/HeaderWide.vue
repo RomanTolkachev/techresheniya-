@@ -2,6 +2,7 @@
 import eventBus from "@/eventBus.js";
 import {computed, ref, toRef, watch} from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
+import {onClickOutside} from "@vueuse/core";
 
 
 // Pinia
@@ -9,6 +10,21 @@ import {piniaStorage} from "@/stores/pinia.js";
 const pinia = piniaStorage();
 const isOpen = computed(() => pinia.piniaIfOpen);
 const toggle = pinia.toggle
+
+// onClickOutside
+
+const sideMenu = ref(null);
+
+
+onClickOutside(sideMenu,() => {
+  if (pinia.piniaIfOpen === true){
+    console.log('oco listener');
+    pinia.piniaIfOpen = false;
+  }
+})
+
+
+
 
 const menu = ref([
   {
@@ -28,8 +44,8 @@ const menu = ref([
 </script>
 
 <template>
-  <div>
-    <div class="fixed z-[2] top-0 bg-white w-full">
+  <div ref="sideMenu">
+    <div class="fixed z-[2] top-0 bg-white w-full"  >
       <header class="flex text-base justify-between items-center h-[65px] px-[15px] text-black shadow-lg">
         <div
             class="header__logo"
