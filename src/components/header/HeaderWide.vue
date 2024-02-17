@@ -1,12 +1,14 @@
 <script setup>
 import eventBus from "@/eventBus.js";
-import {ref} from "vue";
+import {computed, ref, toRef, watch} from "vue";
+import {piniaStorage} from "@/stores/pinia.js";
 
-const props = defineProps({
-  isOpen: {
-    required: true,
-  }
-});
+
+// Pinia
+
+const pinia = piniaStorage();
+const isOpen = computed(() => pinia.piniaIfOpen);
+const toggle = pinia.toggle
 
 const menu = ref([
   {
@@ -55,7 +57,7 @@ const menu = ref([
             v-for="item in menu" v-on:click="eventBus.emit('scrollTo', item.scrollId)">{{ item.name }}</li>
       </ul>
     </nav>
-    <button v-on:click="$emit('update:isOpen', !isOpen)" class="overflow-hidden h-[65px] md:hidden fixed top-0 right-0 z-[3] p-[15px] w-[65px] text-center">
+    <button v-on:click="toggle" class="overflow-hidden h-[65px] md:hidden fixed top-0 right-0 z-[3] p-[15px] w-[65px] text-center">
       <span :class="{'translate-x-[90px]': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute"></span>
       <span :class="{'rotate-45': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
       <span :class="{'-rotate-45': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>

@@ -4,14 +4,18 @@ import BGsrc from '@/assets/webp/background-imageWEBP.webp';
 import BGGragient from '@/assets/webp/josh-beech-tXJhAFVOHVk-unsplash.svg';
 import {computed, onMounted, ref, watch, watchEffect} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
+import {piniaStorage} from "@/stores/pinia.js";
+
+// Pinia
+
+const pinia = piniaStorage();
+const isOpen = computed(() => pinia.piniaIfOpen);
 
 const heroRef = ref(null);
 
 defineExpose({
   heroRef
 })
-
-const isOpen = ref(false);
 
 </script>
 
@@ -27,7 +31,7 @@ const isOpen = ref(false);
             v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
         </div>
       </div>
-      <HeaderWide v-model:isOpen="isOpen" class="md:block transition-all"></HeaderWide>
+      <HeaderWide class="md:block transition-all"></HeaderWide>
       <div class="h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
         <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
         <p class="text-white text-hero-legend -mt-[25px] pt-legend text-center tracking-[.85px]">ПРОИЗВОДИМ
