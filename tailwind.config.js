@@ -5,25 +5,9 @@ export default {
         "./src/**/*.{vue,js,ts,jsx,tsx}",
     ],
     theme: {
-        // screens: {
-        //     s: '550px',
-        //     sm: "800px",
-        //     md: "1024px",
-        //     lg: '1200px',
-        //     xl: '1440px',
-        //     '2xl': "1800px"
-        // },
         container: {
             center: true,
             padding: '25px'
-            // screens: {
-            //     s: '400px',
-            //     sm: '600px',
-            //     md: '728px',
-            //     lg: '820px',
-            //     xl: '1000px',
-            //     '2xl': '1600px'
-            // }
         },
         extend: {
             fontSize: {

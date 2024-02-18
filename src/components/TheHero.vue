@@ -1,7 +1,7 @@
 <script setup>
 
-import BGsrc from '@/assets/webp/background-imageWEBP.webp';
-import BGGragient from '@/assets/webp/josh-beech-tXJhAFVOHVk-unsplash.svg';
+import Bg from '/webp/background-image.webp';
+import BGGradient from '/webp/josh-beech-unsplash.svg';
 import {computed, onMounted, ref, watch, watchEffect} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
 import {piniaStorage} from "@/stores/pinia.js";
@@ -25,10 +25,10 @@ defineExpose({
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
       <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"
-           v-bind:style="{ backgroundImage: `url(${BGsrc})`}">
+           v-bind:style="{ backgroundImage: `url(${Bg})`}">
         <div
             class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] bg-cover opacity-60"
-            v-bind:style="{ backgroundImage: `url(${BGGragient})`}">
+            v-bind:style="{ backgroundImage: `url(${BGGradient})`}">
         </div>
       </div>
       <HeaderWide></HeaderWide>

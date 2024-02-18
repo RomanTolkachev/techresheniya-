@@ -50,7 +50,7 @@ const menu = ref([
         <div
             class="header__logo"
             v-on:click="eventBus.emit('scrollTo', 'hero')">
-          <img class="block transition-all hover:scale-[1.05]" src="@/assets/svg/ЛОГО.svg" alt="logo">
+          <img class="block transition-all hover:scale-[1.05]" src="/svg/ЛОГО.svg" alt="logo">
         </div>
 
         <nav>

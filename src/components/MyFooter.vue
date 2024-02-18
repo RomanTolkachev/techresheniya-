@@ -1,7 +1,5 @@
 <script setup>
 
-import logo from '@/../public/svg/ЛОГО.svg'
-
 </script>
 
 <template>
