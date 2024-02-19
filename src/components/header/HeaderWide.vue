@@ -3,13 +3,15 @@ import eventBus from "@/eventBus.js";
 import {computed, ref, toRef, watch} from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
 import {onClickOutside} from "@vueuse/core";
+import {storeToRefs} from "pinia";
 
 
 // Pinia
 
 const pinia = piniaStorage();
-const isOpen = computed(() => pinia.piniaIfOpen);
-const toggle = pinia.toggle
+const { piniaIfOpen: isOpen } = storeToRefs(pinia);
+const { toggle } = pinia;
+
 
 // onClickOutside
 

@@ -7,5 +7,5 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
     piniaIfOpen.value = !piniaIfOpen.value
   }
 
-  return { hranilishe: piniaStorage, piniaIfOpen, toggle }
+  return { piniaStorage, piniaIfOpen, toggle }
 })
