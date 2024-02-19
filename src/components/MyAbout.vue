@@ -1,11 +1,12 @@
 <script setup>
 
-import {ref} from "vue";
-
+import {onMounted, ref} from "vue";
+import {piniaStorage} from "@/stores/pinia.js";
+const pinia = piniaStorage()
 const aboutRef = ref(null);
 
-defineExpose({
-  aboutRef
+onMounted(() => {
+  pinia.views.aboutRef = aboutRef.value
 })
 
 </script>

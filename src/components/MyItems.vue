@@ -2,12 +2,13 @@
 
 import {items} from '@/assets/products/spare_parts.js'
 import ItemCard from "@/components/ItemCard.vue";
-import {ref} from "vue";
-
+import {onMounted, ref} from "vue";
+import {piniaStorage} from "@/stores/pinia.js";
+const pinia = piniaStorage()
 const itemsRef = ref(null);
 
-defineExpose({
-  itemsRef
+onMounted(() => {
+  pinia.views.itemsRef = itemsRef.value
 })
 
 </script>

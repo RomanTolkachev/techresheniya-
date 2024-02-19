@@ -2,25 +2,24 @@
 
 import Bg from '/webp/background-image.webp';
 import BGGradient from '/webp/josh-beech-unsplash.svg';
-import {computed, onMounted, ref, watch, watchEffect} from "vue";
+import {onMounted, ref} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
 import {piniaStorage} from "@/stores/pinia.js";
+const heroRef = ref(null);
 
 // Pinia
 
 const pinia = piniaStorage();
-const isOpen = computed(() => pinia.piniaIfOpen);
+const { piniaIfOpen:isOpen } = pinia;
 
-const heroRef = ref(null);
-
-defineExpose({
-  heroRef
+onMounted(() => {
+  pinia.views.heroRef  = heroRef.value
 })
 
 </script>
 
 <template>
-  <div ref="heroRef">
+  <section ref="heroRef">
     <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60 " v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
@@ -47,7 +46,7 @@ defineExpose({
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

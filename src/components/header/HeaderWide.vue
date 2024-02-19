@@ -1,6 +1,6 @@
 <script setup>
-import eventBus from "@/eventBus.js";
-import {computed, ref, toRef, watch} from "vue";
+
+import { ref } from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
 import {onClickOutside} from "@vueuse/core";
 import {storeToRefs} from "pinia";
@@ -11,6 +11,7 @@ import {storeToRefs} from "pinia";
 const pinia = piniaStorage();
 const { piniaIfOpen: isOpen } = storeToRefs(pinia);
 const { toggle } = pinia;
+const { scrollTo } = pinia;
 
 
 // onClickOutside
@@ -20,18 +21,14 @@ const sideMenu = ref(null);
 
 onClickOutside(sideMenu,() => {
   if (pinia.piniaIfOpen === true){
-    console.log('oco listener');
     pinia.piniaIfOpen = false;
   }
 })
 
-
-
-
 const menu = ref([
   {
     name: "Оборудование",
-    scrollId: "product",
+    scrollId: "productRef",
   },
   {
     name: "Запасные части",
@@ -51,7 +48,7 @@ const menu = ref([
       <header class="flex text-base justify-between items-center h-[65px] px-[15px] text-black shadow-lg">
         <div
             class="header__logo"
-            v-on:click="eventBus.emit('scrollTo', 'hero')">
+            v-on:click="scrollTo('heroRef')">
           <img class="block transition-all hover:scale-[1.05]" src="/svg/ЛОГО.svg" alt="logo">
         </div>
 
@@ -59,7 +56,7 @@ const menu = ref([
           <ul class="hidden md:flex text-center w-fit gap-5 select-none">
             <li
                 v-for="item in menu"
-                v-on:click="eventBus.emit('scrollTo', item.scrollId)"
+                v-on:click="scrollTo(item.scrollId)"
                 class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] text-center transition-all">
               {{ item.name }}
             </li>
@@ -70,9 +67,9 @@ const menu = ref([
     </div>
     <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
       <ul>
-        <li v-on:click="eventBus.emit('scrollTo', 'hero')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
+        <li v-on:click="scrollTo('heroRef')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
         <li class="p-[10px] border-solid border-b-[1px] active:bg-white active:text-gray-dark"
-            v-for="item in menu" v-on:click="eventBus.emit('scrollTo', item.scrollId)">{{ item.name }}</li>
+            v-for="item in menu" v-on:click="scrollTo(item.scrollId)">{{ item.name }}</li>
       </ul>
     </nav>
     <button v-on:click="toggle" class="overflow-hidden h-[65px] md:hidden fixed top-0 right-0 z-[3] p-[15px] w-[65px] text-center">
