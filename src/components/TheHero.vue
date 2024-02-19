@@ -23,11 +23,9 @@ onMounted(() => {
     <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60 " v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
     <div class="h-[65px]"></div>
     <div class="hero font-Onest h-[calc(100svh-65px)]">
-      <div class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover"
-           v-bind:style="{ backgroundImage: `url(${Bg})`}">
+      <div class="bg-center bg-no-repeat bg-black bg-hero w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover">
         <div
-            class="bg-center bg-no-repeat w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] bg-cover opacity-60"
-            v-bind:style="{ backgroundImage: `url(${BGGradient})`}">
+            class="bg-center bg-no-repeat w-full bg-hero-mask -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] bg-cover opacity-60">
         </div>
       </div>
       <HeaderWide></HeaderWide>

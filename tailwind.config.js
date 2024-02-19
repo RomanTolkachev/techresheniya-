@@ -61,6 +61,10 @@ export default {
             },
             height: {
                 'itemCard-order': 'clamp(3.125rem, 2.736rem + 1.78vw, 3.875rem)',
+            },
+            backgroundImage: {
+                'hero': "url('/webp/background-image.webp')",
+                'hero-mask': "url('/webp/josh-beech-unsplash.svg')",
             }
         }
     },
