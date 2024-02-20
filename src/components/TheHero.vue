@@ -5,12 +5,13 @@ import BGGradient from '/webp/josh-beech-unsplash.svg';
 import {onMounted, ref} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
 import {piniaStorage} from "@/stores/pinia.js";
+import {storeToRefs} from "pinia";
 const heroRef = ref(null);
 
 // Pinia
 
 const pinia = piniaStorage();
-const { piniaIfOpen:isOpen } = pinia;
+const { piniaIfOpen: isOpen } = storeToRefs(pinia);
 
 onMounted(() => {
   pinia.views.heroRef  = heroRef.value
