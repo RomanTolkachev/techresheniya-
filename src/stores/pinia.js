@@ -19,7 +19,12 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
   const isOrderOpen = ref(false);
   const toggleOrderWindow = () => isOrderOpen.value = !isOrderOpen.value;
 
-  onMounted(() => console.log(views.value))
+  //localStorage
 
   return { piniaStorage, piniaIfOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow }
-})
+
+},
+  {
+    persist: true,
+  }
+)
