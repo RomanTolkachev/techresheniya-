@@ -24,13 +24,11 @@ onMounted(() => {
 
 <template>
   <section ref="heroRef">
-    <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60 " v-bind:class="isOpen || isOrderOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
+    <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60" v-bind:class="isOpen || isOrderOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
     <div class="h-[65px]"></div>
     <div class="relative hero font-Onest min-h-96 h-[calc(100svh-65px)]">
       <div class="absolute bg-center bg-no-repeat bg-black bg-hero w-full top-0 h-full -z-10 bg-cover">
-        <div
-            class="bg-center bg-no-repeat w-full bg-hero-mask h-full bg-cover opacity-60">
-        </div>
+        <div class="bg-center bg-no-repeat w-full bg-hero-mask h-full bg-cover opacity-60"></div>
       </div>
       <HeaderWide></HeaderWide>
       <transition>
@@ -48,11 +46,14 @@ onMounted(() => {
         [&>button]:rounded-xl">
           <button
               v-bind:class="{'z-[-1]': isOpen || isOrderOpen}"
-              v-on:click="toggleOrderWindow" class="_btn-orange">
-            оставить заявку
+              class="_btn-orange"
+              v-on:click="toggleOrderWindow"
+              >оставить заявку
           </button>
-          <button v-bind:class="{'z-[-1]': isOpen || isOrderOpen}" class="_btn-transparent">
-            узнать больше
+          <button
+              v-bind:class="{'z-[-1]': isOpen || isOrderOpen}"
+              class="_btn-transparent"
+              >узнать больше
           </button>
         </div>
       </div>
