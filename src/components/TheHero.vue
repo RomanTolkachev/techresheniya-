@@ -36,16 +36,18 @@ onMounted(() => {
       <transition>
         <OrderHero v-if="isOrderOpen"></OrderHero>
       </transition>
-      <div class="h-full pt-[35px] sm:w-[660px] md:pt-[105px] container flex flex-col pb-[45px]">
-        <h1 class="text-white pt-32 md:pt-[48px] text-hero-main text-center font-bold">5 ЛЕТ</h1>
-        <p class="text-white text-hero-legend -mt-[25px] pt-legend text-center tracking-[.85px]">ПРОИЗВОДИМ
-          ОБОРУДОВАНИЕ</p>
-        <p class="text-white text-hero-legend text-center tracking-[.81px]">СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ</p>
-        <div class="flex flex-col items-center md:flex-row justify-center gap-5 mt-auto md:mt-[37px]">
-          <button v-on:click="toggleOrderWindow" class="md:h-[40px] w-full h-[60px] md:w-[189px] font-regular rounded-[10px] text-base _btn-orange">
+      <div class="h-full sm:w-[660px] container flex flex-col justify-center gap-hero py-5">
+        <div class="h-fit flex flex-col mt-auto sm:mt-0">
+          <h1 class="text-white text-hero-main text-center font-bold text-nowrap">5 ЛЕТ</h1>
+          <p class="text-white text-hero-legend text-center tracking-[.85px]">ПРОИЗВОДИМ
+            ОБОРУДОВАНИЕ</p>
+          <p class="text-white text-hero-legend text-center tracking-[.81px]">СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ</p>
+        </div>
+        <div class="flex items-center flex-col sm:flex-row justify-center gap-5 mt-auto sm:mt-0">
+          <button v-on:click="toggleOrderWindow" class="sm:h-[40px] w-full h-[60px] max-w-[350px] sm:max-w-[190px] font-regular rounded-[10px] text-base _btn-orange">
             ОСТАВИТЬ ЗАЯВКУ
           </button>
-          <button v-bind:class="{'z-[-1]': isOpen || isOrderOpen}" class="md:h-[40px] w-full h-[60px] md:w-[189px] font-regular rounded-[10px] text-base _btn-transparent">
+          <button v-bind:class="{'z-[-1]': isOpen || isOrderOpen}" class="sm:h-[40px] w-full h-[60px] max-w-[350px] sm:max-w-[190px] font-regular rounded-[10px] text-base _btn-transparent">
             УЗНАТЬ БОЛЬШЕ
           </button>
         </div>
