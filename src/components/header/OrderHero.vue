@@ -19,8 +19,8 @@ onClickOutside(orderRef, () => {
 </script>
 
 <template>
-  <section class="h-[calc(100svh-65px)] w-full fixed left-1/2 -translate-x-1/2 container py-6">
-    <div ref="orderRef" class=" flex flex-col bg-gray-burger mx-auto w-full max-w-xl h-full rounded-xl p-4">
+  <section class="h-[calc(100svh-65px)] min-h-[500px] w-full fixed left-1/2 -translate-x-1/2 container py-6">
+    <div ref="orderRef" class=" flex flex-col bg-gray-burger mx-auto w-full max-w-xl h-full  rounded-xl p-4">
         <div class="flex justify-end">
           <button v-on:click="toggleOrderWindow" class="rounded-xl active:bg-gray-light md:active:bg-gray-burger w-fit p-2.5">
             <span class="w-fit select-none text-gray-dark">закрыть</span>
