@@ -26,29 +26,33 @@ onMounted(() => {
   <section ref="heroRef">
     <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60 " v-bind:class="isOpen || isOrderOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
     <div class="h-[65px]"></div>
-    <div class="hero font-Onest h-[calc(100svh-65px)]">
-      <div class="bg-center bg-no-repeat bg-black bg-hero w-full -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] relative -z-10 bg-cover">
+    <div class="relative hero font-Onest min-h-96 h-[calc(100svh-65px)]">
+      <div class="absolute bg-center bg-no-repeat bg-black bg-hero w-full top-0 h-full -z-10 bg-cover">
         <div
-            class="bg-center bg-no-repeat w-full bg-hero-mask -mb-[calc(100svh-65px)] h-[calc(100svh-65px)] bg-cover opacity-60">
+            class="bg-center bg-no-repeat w-full bg-hero-mask h-full bg-cover opacity-60">
         </div>
       </div>
       <HeaderWide></HeaderWide>
       <transition>
         <OrderHero v-if="isOrderOpen"></OrderHero>
       </transition>
-      <div class="h-full sm:w-[660px] container flex flex-col justify-center gap-hero py-5">
-        <div class="h-fit flex flex-col mt-auto sm:mt-0">
-          <h1 class="text-white text-hero-main text-center font-bold text-nowrap">5 ЛЕТ</h1>
-          <p class="text-white text-hero-legend text-center tracking-[.85px]">ПРОИЗВОДИМ
-            ОБОРУДОВАНИЕ</p>
-          <p class="text-white text-hero-legend text-center tracking-[.81px]">СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ</p>
+      <div class="uppercase h-full sm:w-[660px] container flex flex-col justify-center gap-hero pt-5 pb-7">
+        <div class="text-center text-white h-fit flex flex-col mt-auto sm:mt-0">
+          <h1 class=" text-hero-main font-bold text-nowrap">5 лет</h1>
+          <p class="text-hero-legend">производим
+            оборудование</p>
+          <p class="text-hero-legend">специального назначения</p>
         </div>
-        <div class="flex items-center flex-col sm:flex-row justify-center gap-5 mt-auto sm:mt-0">
-          <button v-on:click="toggleOrderWindow" class="sm:h-[40px] w-full h-[60px] max-w-[350px] sm:max-w-[190px] font-regular rounded-[10px] text-base _btn-orange">
-            ОСТАВИТЬ ЗАЯВКУ
+        <div class="flex items-center flex-col font-regular text-base sm:flex-row justify-center gap-5 mt-auto sm:mt-0
+        [&>button]:uppercase [&>button]:sm:h-10 [&>button]:w-full [&>button]:h-14 [&>button]:max-w-80 [&>button]:sm:max-w-48
+        [&>button]:rounded-xl">
+          <button
+              v-bind:class="{'z-[-1]': isOpen || isOrderOpen}"
+              v-on:click="toggleOrderWindow" class="_btn-orange">
+            оставить заявку
           </button>
-          <button v-bind:class="{'z-[-1]': isOpen || isOrderOpen}" class="sm:h-[40px] w-full h-[60px] max-w-[350px] sm:max-w-[190px] font-regular rounded-[10px] text-base _btn-transparent">
-            УЗНАТЬ БОЛЬШЕ
+          <button v-bind:class="{'z-[-1]': isOpen || isOrderOpen}" class="_btn-transparent">
+            узнать больше
           </button>
         </div>
       </div>

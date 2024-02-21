@@ -35,5 +35,5 @@
 }
 
 .button-rim__text {
-    @apply text-transparent text-[32px] -mt-[1.5px] tracking-wide px-[33px] font-regular bg-clip-text bg-grad h-full
+    @apply capitalize text-transparent text-[32px] -mt-[1.5px] tracking-wide px-[33px] font-regular bg-clip-text bg-grad h-full
 }

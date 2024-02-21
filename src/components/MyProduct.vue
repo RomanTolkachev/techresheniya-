@@ -15,11 +15,11 @@ onMounted(() => {
 
 <template>
   <section ref="productRef" class="bg-gray-light pt-[100px]">
-    <div class="mx-auto w-fit ">
+    <div class="mx-auto w-fit container">
       <div class="button-rim">
         <div class="button-rim__bg">
           <h1 class="button-rim__text">
-            Наше оборудование
+            оборудование
           </h1>
         </div>
       </div>

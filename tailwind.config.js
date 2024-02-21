@@ -14,7 +14,7 @@ export default {
                 base: ['15px', '19px'],
                 '14px': ['14px', '18px'],
                 '20px': ['20px', '26px'],
-                '32px': ['32px', '41px'],
+                '32px': ['clamp(1.563rem, 0.688rem + 4.667vw, 2rem)', 'clamp(1.875rem, 0.5rem + 7.333vw, 2.563rem)'],
                 '12px': ['12px', '15px'],
                 'hero-main': ['clamp(6.563rem, -8.291rem + 33.951vw, 13.438rem)','clamp(6.875rem, -9.329rem + 37.037vw, 14.375rem)'], // 105/215 на 700 до 1024; 110/230
                 'hero-legend': ['clamp(0.938rem, 0.592rem + 1.842vw, 2.25rem)', 'clamp(1.375rem, 0.98rem + 2.105vw, 2.875rem)'],
