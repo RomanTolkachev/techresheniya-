@@ -2,12 +2,13 @@
 
 import Bg from '/webp/background-image.webp';
 import BGGradient from '/webp/josh-beech-unsplash.svg';
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import HeaderWide from "@/components/header/HeaderWide.vue";
 import {piniaStorage} from "@/stores/pinia.js";
 import {storeToRefs} from "pinia";
 import OrderHero from "@/components/header/OrderHero.vue";
 const heroRef = ref(null);
+
 
 // Pinia
 
@@ -18,6 +19,19 @@ const toggleOrderWindow = pinia.toggleOrderWindow;
 
 onMounted(() => {
   pinia.views.heroRef  = heroRef.value
+})
+
+watch(() => isOrderOpen.value, () => {
+  if (isOrderOpen.value === true) {
+    pinia.scrollPosition = window.scrollY;
+    document.documentElement.classList.add('start-scrolling')
+    document.body.classList.add('stop-scrolling')
+    document.body.scroll(0, pinia.scrollPosition)
+  } else {
+    document.body.classList.remove('stop-scrolling')
+    document.documentElement.classList.remove('start-scrolling')
+    document.documentElement.scroll(0, pinia.scrollPosition)
+  }
 })
 
 </script>
@@ -36,7 +50,7 @@ onMounted(() => {
       </transition>
       <div class="uppercase h-full sm:w-[660px] container flex flex-col justify-center gap-hero pt-5 pb-7">
         <div class="text-center text-white h-fit flex flex-col mt-auto sm:mt-0">
-          <h1 class=" text-hero-main font-bold text-nowrap">5 лет</h1>
+          <h1 class="text-hero-main font-bold text-nowrap">5 лет</h1>
           <p class="text-hero-legend">производим
             оборудование</p>
           <p class="text-hero-legend">специального назначения</p>

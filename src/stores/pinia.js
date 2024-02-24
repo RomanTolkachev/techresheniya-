@@ -17,11 +17,13 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
 
   //order
   const isOrderOpen = ref(false);
-  const toggleOrderWindow = () => isOrderOpen.value = !isOrderOpen.value;
+  const toggleOrderWindow = () => {
+    isOrderOpen.value = !isOrderOpen.value;
+  }
 
   //localStorage
 
-  return { piniaStorage, piniaIfOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow }
+  return { piniaStorage, piniaIfOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow}
 
 },
   {

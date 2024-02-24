@@ -7,6 +7,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.stop-scrolling {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
+.start-scrolling {
+    overflow-y: scroll !important;
+    height: 100%;
+}
+
 .bg-grad {
     @apply bg-gradient-to-r from-gradient-darker to-gradient-lighter
 }
