@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue-youtube/core": "^0.0.6",
     "@vueuse/core": "^10.7.2",
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",
