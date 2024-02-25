@@ -21,20 +21,6 @@ onMounted(() => {
   pinia.views.heroRef  = heroRef.value
 })
 
-//scrollBlock
-
-watch(() => isOrderOpen.value, () => {
-  if (isOrderOpen.value === true) {
-    pinia.scrollPosition = window.scrollY;
-    document.documentElement.classList.add('start-scrolling')
-    document.body.classList.add('stop-scrolling')
-    document.body.scroll(0, pinia.scrollPosition)
-  } else {
-    document.body.classList.remove('stop-scrolling')
-    document.documentElement.classList.remove('start-scrolling')
-    document.documentElement.scroll(0, pinia.scrollPosition)
-  }
-})
 
 // video open
 const { isVideoOpen } = storeToRefs(pinia)
