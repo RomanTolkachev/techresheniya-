@@ -5,7 +5,7 @@ import {ref} from "vue";
 import {storeToRefs} from "pinia";
 import { usePlayer } from '@vue-youtube/core';
 const youtube = ref();
-usePlayer('fD2UExUhq-s', youtube);
+usePlayer('bnVUHWCynig', youtube);
 
 
 const pinia = piniaStorage();
@@ -28,7 +28,7 @@ onClickOutside(videoRef, () => {
           <button v-on:click="toggleVideoOpen" class="block h-fit w-fit self-end rounded-xl active:bg-gray-light md:active:bg-gray-burger p-2.5">
             <span class="w-full select-none text-gray-dark">закрыть</span>
           </button>
-          <div class=" w-full h-full" ref="youtube" />
+          <div class=" w-full h-full rounded-xl" ref="youtube" />
         </div>
     </div>
   </section>
