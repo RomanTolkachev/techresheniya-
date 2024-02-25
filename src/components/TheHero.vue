@@ -13,7 +13,8 @@ const heroRef = ref(null);
 
 // Pinia
 const pinia = piniaStorage();
-const { piniaIfOpen: isOpen,  } = storeToRefs(pinia);
+const { isBurgerOpen  } = storeToRefs(pinia);
+const { isScrollLocked } = storeToRefs(pinia);
 const { isOrderOpen } = storeToRefs(pinia);
 const toggleOrderWindow = pinia.toggleOrderWindow;
 
@@ -30,7 +31,7 @@ const toggleVideoOpen = pinia.toggleVideoOpen;
 
 <template>
   <section ref="heroRef">
-    <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60" v-bind:class="isOpen || isOrderOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
+    <div class="overlay w-full h-[calc(100svh+200px)] fixed bg-black opacity-60" v-bind:class="isBurgerOpen || isScrollLocked ? 'translate-x-[0%]' : 'translate-x-[100%]'"></div>
     <div class="h-[65px]"></div>
     <div class="relative hero font-Onest min-h-96 h-[calc(100svh-65px)]">
       <div class="absolute bg-center bg-no-repeat bg-black bg-hero w-full top-0 h-full -z-10 bg-cover">
@@ -54,13 +55,13 @@ const toggleVideoOpen = pinia.toggleVideoOpen;
         [&>button]:uppercase [&>button]:sm:h-10 [&>button]:w-full [&>button]:h-14 [&>button]:max-w-80 [&>button]:sm:max-w-48
         [&>button]:rounded-xl">
           <button
-              v-bind:class="{'z-[-1]': isOpen || isOrderOpen}"
+              v-bind:class="{'z-[-1]': isBurgerOpen || isScrollLocked}"
               class="_btn-orange"
               v-on:click="toggleOrderWindow"
               >оставить заявку
           </button>
           <button
-              v-bind:class="{'z-[-1]': isOpen || isOrderOpen}"
+              v-bind:class="{'z-[-1]': isBurgerOpen || isScrollLocked}"
               class="_btn-transparent"
               v-on:click="toggleVideoOpen"
               >узнать больше

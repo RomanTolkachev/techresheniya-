@@ -1,25 +1,35 @@
-import {onMounted, ref, watch} from 'vue'
+import {computed, onMounted, ref, watch} from 'vue'
 import { defineStore } from 'pinia'
 
 export const piniaStorage = defineStore('mobileIsOpen', () => {
 
   // burger
-  const piniaIfOpen = ref(false);
+  const isBurgerOpen = ref(false);
   function toggle() {
-    piniaIfOpen.value = !piniaIfOpen.value
+    isBurgerOpen.value = !isBurgerOpen.value
   }
 
-  // scroll
+  // scroll into view via scroll bar
   const views = ref({})
   const scrollTo = (to) => {
     views.value[to].scrollIntoView({behavior: "smooth"})
   }
-  const isScrollLocked = ref(false);
-  const scrollPosition = ref(0)
+
+
+  // scroll blocker
+
+  // если данное вычисляемое свойство возвращает true, то происходит блокировка скролла body
+  const isScrollLocked = computed(() => { // тут через "||" добавить любую переменную, в зависимости от которой будет блокировка
+      return isOrderOpen.value || isVideoOpen.value
+  })
+
+
+  // вотчер снизу анализирует isScrollLocked и если он true, то произойдет блокировка
+  const scrollPosition = ref(0);
 
     onMounted(() => {
-        watch(() => isOrderOpen.value, () => {
-            if (isOrderOpen.value === true) {
+        watch(() => isScrollLocked.value, () => {
+            if (isScrollLocked.value === true) {
                 scrollPosition.value = window.scrollY;
                 document.documentElement.classList.add('start-scrolling')
                 document.body.classList.add('stop-scrolling')
@@ -30,9 +40,7 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
                 document.documentElement.scroll(0, scrollPosition.value)
             }
         })
-
     })
-
 
 
   //order
@@ -47,7 +55,7 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
         isVideoOpen.value = !isVideoOpen.value;
       }
 
-  return { piniaStorage, piniaIfOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow, isVideoOpen, toggleVideoOpen}
+  return { piniaStorage, isBurgerOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow, isVideoOpen, toggleVideoOpen, isScrollLocked}
 
 },
   {

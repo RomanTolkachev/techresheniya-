@@ -9,7 +9,7 @@ import {storeToRefs} from "pinia";
 // Pinia
 
 const pinia = piniaStorage();
-const { piniaIfOpen: isOpen } = storeToRefs(pinia);
+const { isBurgerOpen } = storeToRefs(pinia);
 const { toggle } = pinia;
 const { scrollTo } = pinia;
 
@@ -20,8 +20,8 @@ const sideMenu = ref(null);
 
 
 onClickOutside(sideMenu,() => {
-  if (pinia.piniaIfOpen === true){
-    pinia.piniaIfOpen = false;
+  if (pinia.isBurgerOpen === true){
+    pinia.isBurgerOpen = false;
   }
 })
 
@@ -65,7 +65,7 @@ const menu = ref([
 
       </header>
     </div>
-    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
+    <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isBurgerOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
       <ul>
         <li v-on:click="scrollTo('heroRef')" class="p-[10px] border-solid border-y-[1px] active:bg-white active:text-gray-dark"> Главная </li>
         <li class="p-[10px] border-solid border-b-[1px] active:bg-white active:text-gray-dark"
@@ -73,10 +73,10 @@ const menu = ref([
       </ul>
     </nav>
     <button v-on:click="toggle" class="overflow-hidden h-[65px] md:hidden fixed top-0 right-0 z-[3] p-[15px] w-[65px] text-center">
-      <span :class="{'translate-x-[90px]': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute"></span>
-      <span :class="{'rotate-45': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
-      <span :class="{'-rotate-45': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
-      <span :class="{'translate-x-[-90px]': isOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[14px]"></span>
+      <span :class="{'translate-x-[90px]': isBurgerOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute"></span>
+      <span :class="{'rotate-45': isBurgerOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
+      <span :class="{'-rotate-45': isBurgerOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[7px]"></span>
+      <span :class="{'translate-x-[-90px]': isBurgerOpen}" class="duration-500 w-[35px] h-[2px] top-[25px] left-[15px] bg-gray-dark absolute translate-y-[14px]"></span>
     </button>
   </div>
 </template>
