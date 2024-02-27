@@ -4,17 +4,24 @@ import {product} from '@/assets/products/spare_parts.js'
 import ProdCard from './ProdCard.vue'
 import {onMounted, ref} from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
-const pinia = piniaStorage()
+import ProdInfo from "@/components/prodCard/prodInfo.vue";
+import {storeToRefs} from "pinia";
 const productRef = ref(null)
 
 onMounted(() => {
   pinia.views.productRef = productRef.value
 })
 
+const pinia = piniaStorage();
+const { isProductInfoOpen } = storeToRefs(pinia);
+
 </script>
 
 <template>
-  <section ref="productRef" class="bg-gray-light pt-[100px]">
+  <section ref="productRef" class="bg-gray-light pt-[100px] h-full w-full">
+  <ProdInfo
+      v-if="isProductInfoOpen"
+  ></ProdInfo>
     <div class="mx-auto w-fit container">
       <div class="button-rim">
         <div class="button-rim__bg">

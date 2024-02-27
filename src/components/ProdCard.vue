@@ -1,14 +1,25 @@
 <script setup>
+
+  import {ref} from "vue";
+  import ProdInfo from "@/components/prodCard/prodInfo.vue";
+  import {piniaStorage} from "@/stores/pinia.js";
+  import {storeToRefs} from "pinia";
+
   const props = defineProps({
     details: Object,
   })
-  import {ref} from "vue";
+
+  const pinia = piniaStorage();
+  const { toggleProductInfo, getProductInfo } = pinia;
+  const useProductInfoMethods = (data) => {
+    toggleProductInfo();
+    getProductInfo(data);
+  }
 
 </script>
 
 <template>
-
-  <div class="card bg-white sm:w-[590px] h-full  mx-auto p-2.5 rounded-[18px] grid grid-cols-1 md:grid-cols-2  gap-[15px]">
+  <div class="card bg-white sm:w-[590px] h-full mx-auto p-2.5 rounded-[18px] grid grid-cols-1 md:grid-cols-2 gap-[15px]">
     <div class="card__left flex flex-col">
       <div class="w-full overflow-hidden mb-1.5">
         <img
@@ -17,8 +28,10 @@
             class="rounded-[10px] aspect-[1.35] object-cover"
         >
       </div>
-      <button class="w-full h-itemCard-order py-2.5 px-[15px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-itemCard-order text-black font-regular mt-auto">
-        ОСТАВИТЬ ЗАЯВКУ
+      <button
+          v-on:click="useProductInfoMethods(props.details)"
+          class="uppercase w-full h-itemCard-order py-2.5 px-[15px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-itemCard-order text-black font-regular mt-auto">
+        подробнее
       </button>
     </div>
     <div class="card__right description flex flex-col">

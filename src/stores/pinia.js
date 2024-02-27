@@ -20,7 +20,7 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
 
   // если данное вычисляемое свойство возвращает true, то происходит блокировка скролла body
   const isScrollLocked = computed(() => { // тут через "||" добавить любую переменную, в зависимости от которой будет блокировка
-      return isOrderOpen.value || isVideoOpen.value
+      return isOrderOpen.value || isVideoOpen.value || isProductInfoOpen.value
   })
 
 
@@ -55,7 +55,18 @@ export const piniaStorage = defineStore('mobileIsOpen', () => {
         isVideoOpen.value = !isVideoOpen.value;
       }
 
-  return { piniaStorage, isBurgerOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow, isVideoOpen, toggleVideoOpen, isScrollLocked}
+  //productInfoOpen
+        const isProductInfoOpen = ref(false);
+        const productDetails = ref(null)
+        const toggleProductInfo = () => {
+            isProductInfoOpen.value = !isProductInfoOpen.value;
+        }
+        const getProductInfo = (data) => {
+            productDetails.value = data;
+        }
+
+
+  return { piniaStorage, isBurgerOpen, toggle, scrollTo, views, isOrderOpen, toggleOrderWindow, isVideoOpen, toggleVideoOpen, isScrollLocked, isProductInfoOpen, productDetails, toggleProductInfo, getProductInfo}
 
 },
   {
