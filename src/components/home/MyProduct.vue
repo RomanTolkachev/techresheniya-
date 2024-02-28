@@ -1,10 +1,10 @@
 <script setup>
 
-import {product} from '@/assets/products/spare_parts.js'
+import {products} from '@/assets/products/spare_parts.js'
 import ProdCard from './ProdCard.vue'
 import {onMounted, ref} from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
-import ProdInfo from "@/components/prodCard/prodInfo.vue";
+import ProdInfo from "@/views/ProductView.vue";
 import {storeToRefs} from "pinia";
 const productRef = ref(null)
 
@@ -33,7 +33,7 @@ const { isProductInfoOpen } = storeToRefs(pinia);
     </div>
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-[20px] container w-fit mt-16">
       <prod-card
-          v-for="item in product"
+          v-for="item in products"
           v-bind:details="item"
       />
     </div>

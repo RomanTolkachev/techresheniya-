@@ -2,7 +2,7 @@
 
 import {reactive, ref} from "vue";
 
-const product = reactive([
+const products = reactive([
     {
         id: "p001",
         name: "Аэрозольный генератор горячего тумана ГА-2",
@@ -91,4 +91,4 @@ const items = ref([
     },
 ]);
 
-export {items, product};
+export {items, products};
