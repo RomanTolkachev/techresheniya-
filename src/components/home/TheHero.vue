@@ -3,11 +3,11 @@
 import Bg from '/webp/background-image.webp';
 import BGGradient from '/webp/josh-beech-unsplash.svg';
 import {onMounted, ref, watch} from "vue";
-import HeaderWide from "@/components/header/HeaderWide.vue";
+import HeaderWide from "@/components/home/MyHeader.vue";
 import {piniaStorage} from "@/stores/pinia.js";
 import {storeToRefs} from "pinia";
-import OrderHero from "@/components/header/OrderHero.vue";
-import VideoHero from "@/components/header/VideoHero.vue";
+import OrderHero from "@/components/modals/ModalOrder.vue";
+import VideoHero from "@/components/modals/ModalVideo.vue";
 const heroRef = ref(null);
 
 
