@@ -19,18 +19,26 @@ const item = products.find((item) => item.id === route.params.id)
 </script>
 
 <template>
-  <div class="w-full">
-    <button v-on:click="router.go(-1)" class="block w-fit self-end rounded-xl  p-3.5 z-30 ">
+  <div class="w-full h-svh flex flex-col">
+    <button v-on:click="router.go(-1)" class="">
       <span class="text-20px w-full select-none text-black">назад</span>
     </button>
-    <Splide :options="{ rewind: true }" aria-label="My Favorite Images">
-      <SplideSlide>
-        <img src="/public/items/1.jpeg" alt="Sample 1">
-      </SplideSlide>
-      <SplideSlide>
-        <img src="/public/items/2.jpg" alt="Sample 1">
-      </SplideSlide>
-    </Splide>
+    <div class="">
+      <Splide
+          v-bind:options="{ rewind: true }"
+          aria-label="My Favorite Images"
+          class="">
+        <SplideSlide class="">
+          <img src="/public/items/1.jpeg" alt="Sample 1" class="h-full object-contain w-auto">
+        </SplideSlide >
+        <SplideSlide class="">
+          <img src="/public/items/2.jpg" alt="Sample 1" class="h-full object-contain w-auto">
+        </SplideSlide>
+        <SplideSlide class="">
+          <img src="/public/items/3.jpeg" alt="Sample 1" class="h-full object-contain w-auto">
+        </SplideSlide>
+      </Splide>
+    </div>
 <!--          <div class="">-->
 <!--              <img class="min-h-full object-cover"-->
 <!--                   v-bind:src="item.img" alt="">-->
