@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/vue-splide": "^0.6.12",
     "@vue-youtube/core": "^0.0.6",
     "@vueuse/core": "^10.7.2",
     "mitt": "^3.0.1",
