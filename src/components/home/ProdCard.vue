@@ -16,7 +16,7 @@
     <div class="card__left flex flex-col">
       <div class="w-full overflow-hidden mb-1.5">
         <img
-            :src="props.details.img"
+            :src="props.details.img[0]"
             alt=""
             class="rounded-[10px] aspect-[1.35] object-cover"
         >
