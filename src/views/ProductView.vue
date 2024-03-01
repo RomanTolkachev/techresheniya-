@@ -42,7 +42,8 @@ watch(() => transitionStyle.value, () => console.log(transitionStyle.value))
     </button>
     <div class="slider w-full max-w-lg aspect-video min-h-80 mx-auto flex overflow-hidden">
         <div v-for="picture in prodInfo.img"
-             class="dynamic-transition aspect-[1.3] w-full h-full mx-auto flex shrink-0 duration-300">
+             class="dynamic-transition aspect-[1.3] w-full h-full mx-auto flex shrink-0 duration-300"
+             v-bind:style="{backgroundImage: `url(${picture})`, backdropFilter: 'blur(10px)'}">
           <img
               class="h-full mx-auto object-cover"
               :src="picture" alt="">
