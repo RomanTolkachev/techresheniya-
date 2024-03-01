@@ -7,7 +7,7 @@ const products = reactive([
         id: "p001",
         name: "Аэрозольный генератор горячего тумана ГА-2",
         description: 'Предназначен для дезинфекции птицеводческих комплексов, теплиц, зернохранилищ и т.д.',
-        img: ['/items/1.jpeg', '/items/2.jpg', '/items/3.jpeg'],
+        img: ['/items/1.jpeg', '/items/2.jpg', '/items/3.jpeg',],
         relevance: 0,
         price: 840000,
         advantages: [
