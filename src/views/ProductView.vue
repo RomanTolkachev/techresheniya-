@@ -26,31 +26,47 @@ const nextSlide = () => {
 }
 
 const transitionStyle = computed(() => {
-  return `translateX(${(-currenSlideIndex.value * document.getElementById('slider').offsetWidth)}px)`
+  return `translateX(${(-currenSlideIndex.value * document.getElementById('slider').offsetWidth - deltaX.value)}px)`
 })
 
 // swiper
 const startX = ref(null);
-const endX = ref(null);
+const currentX = ref(null);
 const deltaX = ref(0)
 
 
 const handleTouchStart = (event) => {
   startX.value = event.touches[0].clientX
-  console.log(startX.value)
+  console.log(startX.value);
 }
 const handleTouchMove = (event) => {
-  endX.value = event.touches[0].clientX
-  deltaX.value = startX.value - endX.value
+  currentX.value = event.touches[0].clientX
+  deltaX.value = startX.value - currentX.value;
 }
 
+const handleTouchEnd = (event) => {
+  if (deltaX.value < 150 && deltaX.value >= 0 || deltaX.value < 0 && deltaX.value > -150) {
+    deltaX.value = 0;
+  } else if (deltaX.value > 150) {
+    nextSlide();
+    deltaX.value = 0;
+  } else {
+    prevSlide();
+    deltaX.value = 0;
+  }
+}
 
 onMounted(() => {
+  // сломали функцию, когда можно перемещать img при зажатом клике
+  const sliderImage = document.querySelector('img');
+  sliderImage.addEventListener('dragstart', (event) => event.preventDefault())
+
   const slider = document.getElementById('slider');
 
   // мобилка
-  slider.addEventListener('touchstart', handleTouchStart, false)
-  slider.addEventListener('touchmove', handleTouchMove, false)
+  slider.addEventListener('touchstart', handleTouchStart, false);
+  slider.addEventListener('touchmove', handleTouchMove, false);
+  slider.addEventListener('touchend', handleTouchEnd, false);
 
 
   // ПК
@@ -76,7 +92,7 @@ onMounted(() => {
     </div>
     <div id="slider" class="slider w-full max-w-lg aspect-video min-h-80 mx-auto flex overflow-hidden">
       <div v-for="picture in prodInfo.img"
-           class="dynamic-transition aspect-[1.3] w-full h-full mx-auto flex shrink-0 duration-300 relative">
+           class="dynamic-transition slide-wrapper aspect-[1.3] w-full h-full mx-auto flex shrink-0 duration-300 relative">
         <div
             v-bind:style="{backgroundImage: `url(${picture})`}"
             class="custom-background h-full w-full blur-[60px] brightness-125"></div>
