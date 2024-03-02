@@ -1,6 +1,6 @@
 <script setup>
 import {piniaStorage} from "@/stores/pinia.js";
-import {computed, ref, watch} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {products} from '@/assets/products/spare_parts.js'
 import {useRoute, useRouter} from "vue-router";
 import ArrowLeft from "@/components/svg/ArrowLeft.vue";
@@ -26,11 +26,37 @@ const nextSlide = () => {
 }
 
 const transitionStyle = computed(() => {
-  return `translateX(${currenSlideIndex.value * -100}%)`
+  return `translateX(${(-currenSlideIndex.value * document.getElementById('slider').offsetWidth)}px)`
 })
 
-watch(() => transitionStyle.value, () => console.log(transitionStyle.value))
+// swiper
+const startX = ref(null);
+const endX = ref(null);
+const deltaX = ref(0)
 
+
+const handleTouchStart = (event) => {
+  startX.value = event.touches[0].clientX
+  console.log(startX.value)
+}
+const handleTouchMove = (event) => {
+  endX.value = event.touches[0].clientX
+  deltaX.value = startX.value - endX.value
+}
+
+
+onMounted(() => {
+  const slider = document.getElementById('slider');
+
+  // мобилка
+  slider.addEventListener('touchstart', handleTouchStart, false)
+  slider.addEventListener('touchmove', handleTouchMove, false)
+
+
+  // ПК
+  // slider.addEventListener('mousedown', handleTouchStart, false)
+  // slider.addEventListener('mousemove', handleTouchMove, false)
+})
 
 
 // bg-item
@@ -38,7 +64,7 @@ watch(() => transitionStyle.value, () => console.log(transitionStyle.value))
 </script>
 
 <template>
-  <div class="w-full h-svh flex flex-col font-Onest bg-gray-light">
+  <div class="w-full h-full flex flex-col font-Onest bg-gray-light">
     <div class="flex justify-between w-full max-w-lg mx-auto">
       <button v-on:click="router.go(-1)" class="p-2">
         <ArrowLeft class=""></ArrowLeft>
@@ -48,7 +74,7 @@ watch(() => transitionStyle.value, () => console.log(transitionStyle.value))
         <PhoneIcon></PhoneIcon>
       </button>
     </div>
-    <div class="slider w-full max-w-lg aspect-video min-h-80 mx-auto flex overflow-hidden">
+    <div id="slider" class="slider w-full max-w-lg aspect-video min-h-80 mx-auto flex overflow-hidden">
       <div v-for="picture in prodInfo.img"
            class="dynamic-transition aspect-[1.3] w-full h-full mx-auto flex shrink-0 duration-300 relative">
         <div
@@ -83,7 +109,7 @@ watch(() => transitionStyle.value, () => console.log(transitionStyle.value))
 
 <style scoped>
 .dynamic-transition {
-  transform:v-bind(transitionStyle)
+  transform:v-bind(transitionStyle);
 }
 .custom-background {
   background-size: 100% 100%;
