@@ -94,9 +94,8 @@ onMounted(() => {
         <ArrowLeft class=""></ArrowLeft>
       </button>
       <button class="p-2 flex">
-        <span class="lg:hidden leading-3 font-bold text-gray-dark self-center">задать вопрос <br> оператору</span>
-        <a href="tel:81234567890" class="hidden lg:inline leading-3 font-bold text-gray-dark self-center mr-5">8-123-456-78-90</a>
-        <PhoneIcon></PhoneIcon>
+        <a href="tel:81234567890" class="lg:hidden leading-3 font-bold text-gray-dark flex items-center">задать вопрос <br> оператору<PhoneIcon class="inline"></PhoneIcon></a>
+        <span class="hidden lg:flex items-center leading-3 font-bold text-gray-dark self-center mr-5 ">8-123-456-78-90 <PhoneIcon></PhoneIcon></span>
       </button>
     </div>
     <div class="flex flex-col justify-start">
