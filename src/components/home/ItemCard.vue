@@ -1,5 +1,7 @@
 <script setup>
 
+import OrderBlack from "@/components/buttons/OrderBlack.vue";
+
 const props = defineProps({
   details: Object,
 })
@@ -19,9 +21,7 @@ const props = defineProps({
     <h3 class="card__header text-itemCard-header text-black font-regular text-center mb-[20px]">
       {{ props.details.name }}
     </h3>
-    <button class="w-full h-itemCard-order py-2.5 px-[15px] mx-auto rounded-[10px] border-solid border-[1px] border-black bg-transparent hover:bg-black transition-all hover:text-white text-itemCard-order text-black font-regular mt-auto">
-      ОСТАВИТЬ ЗАЯВКУ
-    </button>
+    <OrderBlack></OrderBlack>
   </div>
 
 </template>
