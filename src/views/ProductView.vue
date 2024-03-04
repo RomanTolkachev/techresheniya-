@@ -13,7 +13,6 @@ const router = useRouter();
 const prodInfo = products.find((item) => item.id === route.params.id);
 
 // carousel
-
 const currenSlideIndex = ref(0)
 const startX = ref(0);
 const currentX = ref(0);
@@ -33,9 +32,6 @@ const nextSlide = () => {
   currenSlideIndex.value > prodInfo.img.length - 1 ? currenSlideIndex.value = 0 : currenSlideIndex.value;
 }
 
-// swiper
-
-
 onMounted(() => {
 
   // сначала получаем ширину слайда, потом следим за изменением ширины слайдера и перезаписываем значение ширины слайдера
@@ -48,7 +44,7 @@ onMounted(() => {
   const observer = new ResizeObserver(handleResize);
   observer.observe(sliderRef.value, { attributes: true,})
 
-
+  // получаем точку касания и убираем со слайдов задержку transition, чтобы картинка перемещалась быстро
   const handleTouchstart = (event) => {
     startX.value = event.touches[0].clientX
     const slides = document.querySelectorAll('.dynamic-transition');
@@ -56,10 +52,14 @@ onMounted(() => {
       item.classList.remove('transition-duration')
     })
   };
+
+  // отслеживаем разницу между первоначальной точкой касания и текущим положением пальца. Свойство transitionX развно этой разнице
   const handleTouchmove = (event) => {
     currentX.value = event.touches[0].clientX;
     deltaX.value = startX.value - currentX.value
   };
+
+  // когда отпускаем палец, убирается задерка на transition свойстве слайдов. Если переместили вбок меньше чем на 70 пикселей, то не свайпнется
   const handleTouchend = () => {
     const slides = document.querySelectorAll('.dynamic-transition');
     slides.forEach(item => {
@@ -76,19 +76,17 @@ onMounted(() => {
     }
   }
 
+  // добавляем слушатели на ref слайдера
   sliderRef.value.addEventListener('touchstart', handleTouchstart);
   sliderRef.value.addEventListener('touchmove', handleTouchmove);
   sliderRef.value.addEventListener('touchend', handleTouchend)
 })
 
 
-// bg-item
-
 </script>
 
 <template>
-  {{ currenSlideIndex }}
-  <div class="w-full h-full flex flex-col font-Onest bg-gray-light">
+  <div class="w-full h-full flex flex-col font-Onest bg-gray-light pb-20">
     <div class="flex justify-between w-full max-w-lg mx-auto">
       <button v-on:click="router.go(-1)" class="p-2">
         <ArrowLeft class=""></ArrowLeft>
