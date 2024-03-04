@@ -95,11 +95,11 @@ onMounted(() => {
       </button>
       <button class="p-2 flex">
         <span class="lg:hidden leading-3 font-bold text-gray-dark self-center">задать вопрос <br> оператору</span>
-        <span class="hidden lg:inline leading-3 font-bold text-gray-dark self-center mr-5">8-123-456-78-90</span>
+        <a href="tel:81234567890" class="hidden lg:inline leading-3 font-bold text-gray-dark self-center mr-5">8-123-456-78-90</a>
         <PhoneIcon></PhoneIcon>
       </button>
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col justify-start">
       <h2 class="hidden lg:block text-20px font-bold py-3 max-w-lg w-fit ml-10 text-center">{{ prodInfo.name }}</h2>
       <div ref="sliderRef" class="slider w-full max-w-lg xl:w-[1280px] xl:max-w-3xl aspect-video min-h-80 mx-auto flex overflow-hidden relative">
         <div v-for="picture in prodInfo.img"
@@ -117,7 +117,7 @@ onMounted(() => {
         </div>
       </div>
       <h4 class="hidden lg:block text-32px font-bold py-3 ml-10">{{ prodInfo.price }} ₽</h4>
-      <OrderBlack class="hidden mx-auto mt-5 lg:block max-w-96"></OrderBlack>
+      <OrderBlack class="hidden mx-auto !mt-5 lg:block max-w-96"></OrderBlack>
     </div>
 
     <div class="px-5 w-full max-w-lg mx-auto lg:mx-0 [&>h4]:text-32px [&>h4]:font-bold [&>h4]:py-3

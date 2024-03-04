@@ -4,6 +4,7 @@ import { ref } from "vue";
 import {piniaStorage} from "@/stores/pinia.js";
 import {onClickOutside} from "@vueuse/core";
 import {storeToRefs} from "pinia";
+import PhoneIcon from "@/components/svg/PhoneIcon.vue";
 
 
 // Pinia
@@ -62,7 +63,7 @@ const menu = ref([
             </li>
           </ul>
         </nav>
-
+        <a href="tel:81234567890" class=" mr-20 md:hidden leading-3 font-bold text-gray-dark self-center">8-123-456-78-90<PhoneIcon class="sm:inline hidden"></PhoneIcon></a>
       </header>
     </div>
     <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isBurgerOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">
