@@ -52,18 +52,18 @@ const menu = ref([
             v-on:click="scrollTo('heroRef')">
           <img class="block transition-all hover:scale-[1.05]" src="/svg/ЛОГО.svg" alt="logo">
         </div>
-
         <nav>
-          <ul class="hidden md:flex text-center w-fit gap-5 select-none">
+          <ul class="hidden md:flex text-center w-fit gap-5 select-none items-center">
+            <li class="transition-all"><PhoneIcon class="inline h-8 rotate-45"></PhoneIcon>8-123-456-78-90</li>
             <li
                 v-for="item in menu"
                 v-on:click="scrollTo(item.scrollId)"
-                class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] text-center transition-all">
+                class="hover:-translate-y-0.5 hover:drop-shadow-[-2px_13px_23px_rgba(59,56,92,1)] align-middle text-center transition-all">
               {{ item.name }}
             </li>
           </ul>
         </nav>
-        <a href="tel:81234567890" class=" mr-20 md:hidden leading-3 font-bold text-gray-dark self-center">8-123-456-78-90<PhoneIcon class="sm:inline hidden"></PhoneIcon></a>
+        <a href="tel:81234567890" class=" mr-20 md:hidden leading-3 font-bold text-gray-dark self-center">позвонить нам<PhoneIcon class=" h-8 hidden xs:inline"></PhoneIcon></a>
       </header>
     </div>
     <nav class="bg-gray-burger text-white h-full w-2/5 fixed right-0 z-[2] select-none duration-300 md:hidden" v-bind:class="isBurgerOpen ? 'translate-x-[0%]' : 'translate-x-[100%]'">

@@ -10,6 +10,9 @@ export default {
             padding: '25px'
         },
         extend: {
+            screens: {
+                'xs': '450px',
+            },
             fontSize: {
                 base: ['15px', '19px'],
                 '14px': ['14px', '18px'],

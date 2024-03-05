@@ -99,7 +99,7 @@ onMounted(() => {
       </button>
     </div>
     <div class="flex flex-col justify-start">
-      <h2 class="hidden lg:block text-20px font-bold py-3 max-w-lg w-fit ml-10 text-center">{{ prodInfo.name }}</h2>
+vv      <h2 class="hidden lg:block text-20px font-bold py-3 max-w-lg w-fit ml-10 text-center">{{ prodInfo.name }}</h2>
       <div ref="sliderRef" class="slider w-full max-w-lg xl:w-[1280px] xl:max-w-3xl aspect-video min-h-80 mx-auto flex overflow-hidden relative">
         <div v-for="picture in prodInfo.img"
              class="dynamic-transition transition-duration slide-wrapper w-full aspect-[1.3] h-full mx-auto flex shrink-0 relative">
