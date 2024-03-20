@@ -24,11 +24,12 @@
               placeholder="Номер телефона"
               class="px-[42px] py-[35px] bg-gray-light rounded-[10px] text-15-20"
           >
-          <button class="w-full bg-grad p-px rounded-[10px] h-[100px]">
+<!--          див переделать в btn-->
+          <div class="w-full bg-grad p-px rounded-[10px] h-[100px]">
           <span class="bg-white w-full h-full rounded-[9px] flex flex-col justify-center group hover:bg-gradient-to-r hover:from-gradient-darker hover:to-gradient-lighter transition-all">
             <span class="w-fit mx-auto bg-grad bg-clip-text text-20px font-regular text-transparent group-hover:text-white transition-all">ОСТАВИТЬ ЗАЯВКУ</span>
           </span>
-          </button>
+          </div>
         </form>
       </div>
     </div>
